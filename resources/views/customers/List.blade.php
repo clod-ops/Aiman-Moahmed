@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
    
 @section('content')
   <a href="{{ route('playgrounds.create') }}" class="btn btn-success mb-2">Add</a> 

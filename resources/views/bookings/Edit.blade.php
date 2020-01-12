@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
  
 @section('content')
 <h2 style="margin-top: 12px;" class="text-center">Edit Booking</a></h2>
@@ -12,24 +12,33 @@
     <div class="col-md-12">
         <div class="form-group">
             <strong>User ID</strong>
-            <input type="text" name="user_id" class="form-control" placeholder="Enter New User ID" value="{{ $booking_info->user_id }}">
+            <select name="user_id" id="user_id" class="form-control">
+                @foreach(\App\User::get() as $item)
+                    <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+            </select>
             <span class="text-danger">{{ $errors->first('user_id') }}</span>
         </div>
     </div>
     <div class="col-md-12">
         <div class="form-group">
             <strong>Playground ID</strong>
-            <input type="text" name="playground_id" class="form-control" placeholder="Enter New Playground ID" value="{{ $booking_info->playground_id }}">
+            <select name="playground_id" id="playground_id" class="form-control">
+                @foreach(\App\Playground::get() as $item)
+                    <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+            </select>
             <span class="text-danger">{{ $errors->first('playground_id') }}</span>
         </div>
     </div>
     <div class="col-md-12">
         <div class="form-group">
             <strong>Date & Time</strong>
-            <textarea class="form-control" col="4" name="time" placeholder="Enter New Date & Time" >{{ $booking_info->time }}</textarea>
+            <input type="text" name="time" class="form-control" placeholder="YYYY-MM-DD HH-MM-SS" value="{{ $booking_info->time }}">
             <span class="text-danger">{{ $errors->first('time') }}</span>
         </div>
     </div>
+
     <div class="col-md-12">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>

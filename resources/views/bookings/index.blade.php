@@ -10,8 +10,8 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">User ID</th>
-            <th scope="col">Playground ID</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Playground Name</th>
             <th scope="col">Date & Time</th>
           <th scope="col">
             @if(Auth::check())
@@ -40,6 +40,7 @@
          
         </tbody>
       </table>
+      {{ $bookings->links() }}
 </div>
 
 @endsection

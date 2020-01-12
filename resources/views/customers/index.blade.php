@@ -38,6 +38,7 @@
          
         </tbody>
       </table>
+      {{ $customers->links() }}
 </div>
     
 @endsection

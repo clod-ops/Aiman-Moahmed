@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
  
 @section('content')
 <h2 style="margin-top: 12px;" class="text-center">Add Booking</a></h2>
@@ -22,7 +22,7 @@
     <div class="col-md-12">
         <div class="form-group">
             <strong>Date & Time</strong>
-            <input type="text" name="time" class="form-control" placeholder="YYYY-MM-DD HH-MM-SS">
+            <input type="text" name="time" class="form-control" placeholder="YYYY-MM-DD HH-MM-SS" value="2020-01-12 05-00-00">
             <span class="text-danger">{{ $errors->first('time') }}</span>
         </div>
     </div>

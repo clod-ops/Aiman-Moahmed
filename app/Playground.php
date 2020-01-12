@@ -14,4 +14,19 @@ class Playground extends Model
         'size',
         'capacity',
        ];
+
+       public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function booking()
+    {
+        return $this->belongsTo('App\Booking');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Customer');
+    }
 }

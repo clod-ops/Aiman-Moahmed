@@ -14,4 +14,19 @@ class Customer extends Model
         'date_of_birth',
         'user_id',
        ];
+
+       public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function playground()
+    {
+        return $this->belongsTo('App\Playground');
+    }
+
+    public function booking()
+    {
+        return $this->belongsTo('App\Booking');
+    }
 }

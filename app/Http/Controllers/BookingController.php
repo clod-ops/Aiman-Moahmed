@@ -17,7 +17,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = Booking::get();
+        $bookings = Booking::paginate(8);
 
         return view('bookings.index', compact('bookings'));
     }

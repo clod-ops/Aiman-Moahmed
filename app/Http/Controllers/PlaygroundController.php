@@ -16,7 +16,7 @@ class PlaygroundController extends Controller
      */
     public function index()
     {
-        $playgrounds = Playground::paginate(5);
+        $playgrounds = Playground::paginate(8);
 
         return view('playgrounds.index', compact('playgrounds'));
     }

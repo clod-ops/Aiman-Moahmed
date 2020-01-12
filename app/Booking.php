@@ -24,4 +24,9 @@ class Booking extends Model
     {
         return $this->belongsTo('App\Playground');
     }
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Customer');
+    }
 }
