@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group">
-            <strong>User ID</strong>
+            <strong>User Name</strong>
             <select name="user_id" id="user_id" class="form-control">
                 @foreach(\App\User::get() as $item)
                     <option value="{{$item->id}}">{{$item->name}}</option>
@@ -22,7 +22,7 @@
     </div>
     <div class="col-md-12">
         <div class="form-group">
-            <strong>Playground ID</strong>
+            <strong>Playground Name</strong>
             <select name="playground_id" id="playground_id" class="form-control">
                 @foreach(\App\Playground::get() as $item)
                     <option value="{{$item->id}}">{{$item->name}}</option>
@@ -36,7 +36,7 @@
         <div class="form-group">               
             <strong>Start Date</strong>
             <div class='input-group date' id='example1'>
-                <input type='text' name="start_date" class="form-control" />
+                <input type='text' name="start_date" class="form-control" value="{{ $booking_info->start_date }}">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -47,7 +47,7 @@
         <div class="form-group">               
             <strong>Start Time </strong>
             <div class='input-group date' id='example2'>
-                <input type='text' name="start_time" class="form-control" />
+                <input type='text' name="start_time" class="form-control" value="{{ $booking_info->start_time }}">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -58,7 +58,7 @@
         <div class="form-group">               
             <strong>Finish Date</strong>
             <div class='input-group date' id='example3'>
-                <input type='text' name="finish_date" class="form-control" />
+                <input type='text' name="finish_date" class="form-control" value="{{ $booking_info->finish_date }}">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -69,7 +69,7 @@
         <div class="form-group">               
             <strong>Finish Time</strong>
             <div class='input-group date' id='example4'>
-                <input type='text' name="finish_time" class="form-control" />
+                <input type='text' name="finish_time" class="form-control" value="{{ $booking_info->finish_time }}">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>

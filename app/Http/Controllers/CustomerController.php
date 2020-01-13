@@ -16,7 +16,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer::paginate(8);
+        $customers = Customer::paginate(10);
 
         return view('customers.index', compact('customers'));
     }
@@ -40,10 +40,10 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'date_of_birth' => 'required',
-            'user_id' => 'required',
+            'first_name' => 'required|alpha',
+            'last_name' => 'required|alpha',
+            'date_of_birth' => 'required|date',
+            'user_id' => 'required|digits:1',
         ]);
 
         Customer::create($request->all());
@@ -87,10 +87,10 @@ class CustomerController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'date_of_birth' => 'required',
-            'user_id' => 'required',
+            'first_name' => 'required|alpha',
+            'last_name' => 'required|alpha',
+            'date_of_birth' => 'required|date',
+            'user_id' => 'required|digits:1',
         ]);
          
         $update = ['first_name' => $request->first_name, 'last_name' => $request->last_name, 'date_of_birth' => $request->date_of_birth, 'user_id' => $request->user_id];

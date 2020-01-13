@@ -16,7 +16,7 @@ class PlaygroundController extends Controller
      */
     public function index()
     {
-        $playgrounds = Playground::paginate(8);
+        $playgrounds = Playground::paginate(10);
 
         return view('playgrounds.index', compact('playgrounds'));
     }
@@ -40,10 +40,10 @@ class PlaygroundController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'location' => 'required',
-            'size' => 'required',
-            'capacity' => 'required',
+            'name' => 'required|alpha',
+            'location' => 'required|alpha',
+            'size' => 'required|digits:4',
+            'capacity' => 'required|digits:3',
         ]);
 
         Playground::create($request->all());
@@ -87,10 +87,10 @@ class PlaygroundController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required',
-            'location' => 'required',
-            'size' => 'required',
-            'capacity' => 'required',
+            'name' => 'required|alpha',
+            'location' => 'required|alpha',
+            'size' => 'required|digits:4',
+            'capacity' => 'required|digits:3',
         ]);
          
         $update = ['name' => $request->name, 'location' => $request->location, 'size' => $request->size, 'capacity' => $request->capacity];
