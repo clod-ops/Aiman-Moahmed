@@ -48,6 +48,10 @@
                 font-size: 84px;
             }
 
+            img {
+                border-radius: 50%;
+            }
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -79,10 +83,12 @@
                     @endauth
                 </div>
             @endif
-            
         
 
+            
             <div class="content">
+                <img height="500px" width="900px" src="/storage/page_images/playground1.jpg"> 
+
                 <div class="title m-b-md">
                     Playground Booking System
                 </div>

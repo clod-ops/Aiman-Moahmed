@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             BookingSeeder::class,
             CustomerSeeder::class,
             PlaygroundSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

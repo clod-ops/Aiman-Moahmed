@@ -12,9 +12,11 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Location</th>
-            <th scope="col">Size</th>
-            <th scope="col">Capacity</th>
+            <th scope="col">Size (ft)</th>
+            <th scope="col">Capacity (seating)</th>
+            @if(Auth::check())
           <th scope="col"><a href="{{ route('playgrounds.create') }}" class="btn btn-success">Create</a></th>
+          @endif
           </tr>
         </thead>
         <tbody>
@@ -25,6 +27,7 @@
                     <td>{{ $playground->location }}</td>
                     <td>{{ $playground->size }}</td>
                     <td>{{ $playground->capacity }}</td>
+                    @if(Auth::check())
                     <td>
                         <form action="{{ route('playgrounds.destroy', $playground->id)}}" method="post">
                             <a href="{{ route('playgrounds.edit', $playground->id) }}" class="btn btn-primary">Edit</a>
@@ -32,7 +35,9 @@
                             @method('DELETE')
                        <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
+                        
                     </td>
+                    @endif
                 </tr>  
             @endforeach
          

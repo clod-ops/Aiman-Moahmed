@@ -17,7 +17,10 @@ class CreateBookingsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('playground_id');
-            $table->dateTime('time');
+            $table->date('start_date');
+            $table->date('finish_date');
+            $table->time('start_time');
+            $table->time('finish_time');
             $table->timestamps(); 
         });
     }

@@ -14,7 +14,9 @@
             <th scope="col">Last Name</th>
             <th scope="col">Date of Birth</th>
             <th scope="col">User ID</th>
+            @if(Auth::check())
           <th scope="col"><a href="{{ route('customers.create') }}" class="btn btn-success">Create</a></th>
+          @endif
           </tr>
         </thead>
         <tbody>
@@ -25,6 +27,7 @@
                     <td>{{ $customer->last_name }}</td>
                     <td>{{ $customer->date_of_birth }}</td>
                     <td>{{ $customer->user_id }}</td>
+                    @if(Auth::check())
                     <td>
                         <form action="{{ route('customers.destroy', $customer->id)}}" method="post">
                             <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-primary">Edit</a>
@@ -33,6 +36,7 @@
                        <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </td>
+                    @endif
                 </tr>  
             @endforeach
          
