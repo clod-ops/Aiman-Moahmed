@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('bookings.layout')
 
 @section('content')
 <h2 style="margin-top: 12px;" class="text-center">Edit Booking</a></h2>

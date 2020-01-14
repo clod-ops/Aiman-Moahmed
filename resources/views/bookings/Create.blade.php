@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('bookings.layout')
  
 @section('content')
-<h2 style="margin-top: 12px;" class="text-center">Add Booking</a></h2>
+<h1 style="margin-top: 12px;" class="text-center">Add Booking</a></h1>
 <br>
  
 <form action="{{ route('bookings.store') }}" method="POST" name="add_booking">

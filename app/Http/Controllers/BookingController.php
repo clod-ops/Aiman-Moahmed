@@ -41,7 +41,6 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id' => 'required',
             'playground_id' => 'required',
             'start_date' => 'required',
             'finish_date' => 'required',
