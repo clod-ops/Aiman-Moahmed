@@ -34,9 +34,9 @@
     {{-- Date&Time Picker --}}
     <div class="col-md-12">
         <div class="form-group">               
-            <strong>Start Date</strong>
+            <strong>Start Date & Time</strong>
             <div class='input-group date' id='example1'>
-                <input type='text' name="start_date" class="form-control" value="{{ $booking_info->start_date }}">
+                <input type='text' name="start_date_time" class="form-control" value="{{ $booking_info->start_date_time }}">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -45,57 +45,23 @@
     </div>
     <div class="col-md-12">
         <div class="form-group">               
-            <strong>Start Time </strong>
+            <strong>Finish Date & Time</strong>
             <div class='input-group date' id='example2'>
-                <input type='text' name="start_time" class="form-control" value="{{ $booking_info->start_time }}">
+                <input type='text' name="finish_date_time" class="form-control" value="{{ $booking_info->finish_date_time }}">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
             </div>
         </div>
     </div>
-    <div class="col-md-12">
-        <div class="form-group">               
-            <strong>Finish Date</strong>
-            <div class='input-group date' id='example3'>
-                <input type='text' name="finish_date" class="form-control" value="{{ $booking_info->finish_date }}">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12">
-        <div class="form-group">               
-            <strong>Finish Time</strong>
-            <div class='input-group date' id='example4'>
-                <input type='text' name="finish_time" class="form-control" value="{{ $booking_info->finish_time }}">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-            </div>
-        </div>
-    </div>
-
     <script>
         $(function () {
               $('#example1').datetimepicker({
-                format: 'YYYY/MM/DD',
+                format: 'YYYY/MM/DD HH:mm',
                 locale: 'en'
               });
-
               $('#example2').datetimepicker({
-                format: 'HH:mm',
-                locale: 'en'
-              });
-
-              $('#example3').datetimepicker({
-                format: 'YYYY/MM/DD',
-                locale: 'en'
-              });
-
-              $('#example4').datetimepicker({
-                format: 'HH:mm',
+                format: 'YYYY/MM/DD HH:mm',
                 locale: 'en'
               });
         });

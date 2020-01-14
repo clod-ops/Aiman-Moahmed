@@ -11,10 +11,8 @@ class Booking extends Model
     protected $fillable = [
         'user_id',
         'playground_id',
-        'start_date',
-        'start_time',
-        'finish_date',
-        'finish_time',
+        'start_date_time',
+        'finish_date_time',
        ];
 
     // relationships

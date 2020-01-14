@@ -39,10 +39,8 @@
                     @endif
                 </tr>  
             @endforeach
-         
         </tbody>
       </table>
       {{ $customers->links() }}
 </div>
-    
 @endsection

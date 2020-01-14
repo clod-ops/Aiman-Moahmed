@@ -41,11 +41,10 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'user_id' => 'nullable',
             'playground_id' => 'required',
-            'start_date' => 'required',
-            'finish_date' => 'required',
-            'start_time' => 'required',
-            'finish_time' => 'required',
+            'start_date_time' => 'required|unique:bookings',
+            'finish_date_time' => 'required|unique:bookings',
         ]);
 
         $request->merge(['user_id' => Auth::user()->id]);
@@ -92,14 +91,12 @@ class BookingController extends Controller
         $request->validate([
             'user_id' => 'required',
             'playground_id' => 'required',
-            'start_date' => 'required',
-            'finish_date' => 'required',
-            'start_time' => 'required',
-            'finish_time' => 'required',
+            'start_date_time' => 'required',
+            'finish_date_time' => 'required',
         ]);
          
-        $update = ['user_id' => $request->user_id, 'playground_id' => $request->playground_id, 'start_date' => $request->start_date, 
-        'finish_date' => $request->finish_date, 'start_time' => $request->start_time, 'finish_time' => $request->finish_time];
+        $update = ['user_id' => $request->user_id, 'playground_id' => $request->playground_id, 'start_date_time' => $request->start_date_time, 
+        'finish_date_time' => $request->finish_date_time];
         Booking::where('id',$id)->update($update);
    
         return Redirect::to('bookings')
