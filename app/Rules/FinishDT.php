@@ -38,8 +38,8 @@ class FinishDT implements Rule
                                })->count();
                               
 
-        // greater then today AND count of overlapping bookings = 0
-        return $date >= Carbon::now() && $bookingsCount >! 0;
+        //Should book if date greater than Start Date/Time && count of overlapping bookings == 0
+        return $date >= Carbon::now() && $bookingsCount == 0;
     }
 
     /**
@@ -49,6 +49,6 @@ class FinishDT implements Rule
      */
     public function message()
     {
-        return 'Should be bigger than start Date/Time';
+        return 'Date/Time should be bigger than Start Date/Time --- Also have a unique Booking time';
     }
 }
