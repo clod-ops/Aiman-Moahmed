@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
 use PDF;
+use App\Rules\StartDT;
+use App\Rules\FinishDT;
 
 class BookingController extends Controller
 {
@@ -43,10 +45,10 @@ class BookingController extends Controller
         $request->validate([
             'user_id' => 'nullable',
             'playground_id' => 'required',
-            'start_date_time' => 'required|unique:bookings',
-            'finish_date_time' => 'required|unique:bookings',
+            'start_date_time' => ['required','date', new StartDT],
+            'finish_date_time' => ['required', new FinishDT],
         ]);
-
+       
         $request->merge(['user_id' => Auth::user()->id]);
         
         Booking::create($request->all());
