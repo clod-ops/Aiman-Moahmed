@@ -1,0 +1,16 @@
+1. .env.example to .env
+change app name and local hosts
+
+2. Git push and fetch steps
+ls
+cd
+git init
+git remote add origin <link>
+(skip above if already have)
+git remote -v
+git add . 
+git commit -m "first commit"
+git push origin master
+
+3. Image doesnt show fix
+php artisan storage:link
