@@ -39,8 +39,9 @@
                 <input type='text' name="start_date_time" class="form-control" value="{{ $booking_info->start_date_time }}">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+                    </span>    
             </div>
+            <span class="text-danger">{{ $errors->first('start_date_time') }}</span>
         </div>
     </div>
     <div class="col-md-12">
@@ -52,6 +53,7 @@
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
             </div>
+            <span class="text-danger">{{ $errors->first('finish_date_time') }}</span>
         </div>
     </div>
     <script>

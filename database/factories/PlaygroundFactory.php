@@ -9,7 +9,7 @@ $factory->define(Playground::class, function (Faker $faker) {
     return [
         'name' => $faker->city,
         'location' => $faker->country,
-        'size' => $faker->numberBetween($min = 1000, $max = 9000),
-        'capacity' => $faker->numberBetween($min = 100, $max = 900), 
+        'size' => $faker->numberBetween($min = 1, $max = 9999),
+        'capacity' => $faker->numberBetween($min = 1, $max = 999), 
     ];
 });

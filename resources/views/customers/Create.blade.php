@@ -32,7 +32,7 @@
     <div class="col-md-12">
         <div class="form-group">
             <strong>User ID</strong>
-            <input type="text" class="form-control" name="user_id" placeholder="6969">
+            <input type="text" class="form-control" name="user_id" placeholder="1-100">
             <span class="text-danger">{{ $errors->first('user_id') }}</span>
         </div>
     </div>

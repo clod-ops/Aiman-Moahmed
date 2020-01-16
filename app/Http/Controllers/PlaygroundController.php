@@ -42,8 +42,8 @@ class PlaygroundController extends Controller
         $request->validate([
             'name' => 'required|alpha',
             'location' => 'required|alpha',
-            'size' => 'required|digits:4',
-            'capacity' => 'required|digits:3',
+            'size' => 'required|between:1,9999',
+            'capacity' => 'required|between:1,999',
         ]);
 
         Playground::create($request->all());
@@ -89,8 +89,8 @@ class PlaygroundController extends Controller
         $request->validate([
             'name' => 'required|alpha',
             'location' => 'required|alpha',
-            'size' => 'required|digits:4',
-            'capacity' => 'required|digits:3',
+            'size' => 'required|between:1,9999',
+            'capacity' => 'required|between:1,999',
         ]);
          
         $update = ['name' => $request->name, 'location' => $request->location, 'size' => $request->size, 'capacity' => $request->capacity];

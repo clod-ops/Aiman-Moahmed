@@ -26,14 +26,14 @@
     <div class="col-md-12">
         <div class="form-group">
             <strong>Size</strong>
-            <input type="text" class="form-control" name="size" placeholder="4000 ft">
+            <input type="text" class="form-control" name="size" placeholder="1-9999 ft">
             <span class="text-danger">{{ $errors->first('size') }}</span>
         </div>
     </div>
     <div class="col-md-12">
         <div class="form-group">
             <strong>Capacity</strong>
-            <input type="text" class="form-control" name="capacity" placeholder="500 people">
+            <input type="text" class="form-control" name="capacity" placeholder="1-999 people">
             <span class="text-danger">{{ $errors->first('capacity') }}</span>
         </div>
     </div>
