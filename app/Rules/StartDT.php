@@ -28,8 +28,14 @@ class StartDT implements Rule
                 });
         })->count();
 
+        $playgroundCount = Booking::where(function ($query) use ($date) {
+            $query->where(function ($query) use ($date) {
+                $query->where('playground_id', '===', $date);
+                });
+        })->count();
+dd($playgroundCount);
         //Count of overlapping bookings == 0
-        return $date === $this->id && $bookingsCount == 0;
+        return $playgroundCount == 0 && $bookingsCount == 0;
     }
 
     public function message()
