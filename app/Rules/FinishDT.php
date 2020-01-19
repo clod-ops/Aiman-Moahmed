@@ -11,14 +11,14 @@ class FinishDT implements Rule
 {
     public $id;
   
-    public function __construct($id)
+    public function __construct()
     {
-        $this->id = $id;
+
     }
    
     public function passes($attribute, $value)
     {
-        //Checks for overlaps
+
         $date = Carbon::create($value);
 
         $bookingsCount = Booking::where(function ($query) use ($date) {
@@ -28,8 +28,7 @@ class FinishDT implements Rule
                 });
         })->count();
 
-        //Count of overlapping bookings == 0
-        return $date === $this->id && $bookingsCount == 0;
+        return $bookingsCount == 0;
     }
 
     public function message()

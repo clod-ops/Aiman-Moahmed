@@ -12,19 +12,22 @@
     "devDependencies": {
         "@babel/preset-react": "^7.0.0",
         "axios": "^0.19",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^4.1.1",
         "cross-env": "^5.1",
-        "jquery": "^3.2",
+        "jquery": "^3.0",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.13",
-        "popper.js": "^1.12",
+        "popper.js": "^1.12.9",
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
-        "sass-loader": "^7.1.0"
+        "sass-loader": "^7.1.0",
+        "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "eonasdan-bootstrap-datetimepicker-npm": "^4.17.42"
+        "fontawesome": "^5.6.3",
+        "moment": "^2.14.1",
+        "tempusdominus-bootstrap-4": "^5.1.2"
     }
 }

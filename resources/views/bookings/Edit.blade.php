@@ -1,4 +1,4 @@
-@extends('bookings.layout')
+@extends('layouts.app')
 
 @section('content')
 <h2 style="margin-top: 12px;" class="text-center">Edit Booking</a></h2>
@@ -33,41 +33,27 @@
     </div>
     {{-- Date&Time Picker --}}
     <div class="col-md-12">
-        <div class="form-group">               
+        <div class="form-group">
             <strong>Start Date & Time</strong>
-            <div class='input-group date' id='example1'>
-                <input type='text' name="start_date_time" class="form-control" value="{{ $booking_info->start_date_time }}">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>    
-            </div>
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                <input type="text" name="start_date_time" class="form-control datetimepicker-input" data-target="#datetimepicker1"  value="{{ $booking_info->start_date_time }}"/>
+                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+                </div>
             <span class="text-danger">{{ $errors->first('start_date_time') }}</span>
         </div>
-    </div>
-    <div class="col-md-12">
-        <div class="form-group">               
+        <div class="form-group">
             <strong>Finish Date & Time</strong>
-            <div class='input-group date' id='example2'>
-                <input type='text' name="finish_date_time" class="form-control" value="{{ $booking_info->finish_date_time }}">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+            <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+            <input type="text" name="finish_date_time" class="form-control datetimepicker-input" data-target="#datetimepicker2"  value="{{ $booking_info->finish_date_time }}"/>
+            <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
             </div>
             <span class="text-danger">{{ $errors->first('finish_date_time') }}</span>
         </div>
     </div>
-    <script>
-        $(function () {
-              $('#example1').datetimepicker({
-                format: 'YYYY/MM/DD HH:mm',
-                locale: 'en'
-              });
-              $('#example2').datetimepicker({
-                format: 'YYYY/MM/DD HH:mm',
-                locale: 'en'
-              });
-        });
-    </script>
 
     <div class="col-md-12">
         <button type="submit" class="btn btn-primary">Submit</button>
@@ -76,4 +62,21 @@
  
 </form>
 
+@endsection
+
+@section('scripts')
+<script>
+    $(function () {
+        console.log('1212check')
+        $('#datetimepicker1').datetimepicker({
+                format: 'YYYY/MM/DD HH:mm',
+                locale: 'en'
+              });
+        $('#datetimepicker2').datetimepicker({
+                format: 'YYYY/MM/DD HH:mm',
+                locale: 'en'
+              });
+        
+    });
+</script>
 @endsection

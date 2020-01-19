@@ -32,7 +32,7 @@ class BookingController extends Controller
             'user_id' => 'nullable',
             'playground_id' => 'required',
             'start_date_time' => ['required','date','after:today', new StartDT],
-            'finish_date_time' => ['required','date','after:start_date_time', new FinishDT($this->id)],
+            'finish_date_time' => ['required','date','after:start_date_time', new FinishDT()],
         ]);
        
         $request->merge(['user_id' => Auth::user()->id]);
@@ -63,8 +63,8 @@ class BookingController extends Controller
             $request->validate([
             'user_id' => 'required',
             'playground_id' => 'required',
-            'start_date_time' => ['required','date','after:today', new StartDT($this->id)],
-            'finish_date_time' => ['required','date','after:start_date_time', new FinishDT($this->id)],
+            'start_date_time' => ['required','date','after:today', new StartDT()],
+            'finish_date_time' => ['required','date','after:start_date_time', new FinishDT()],
         ]);
          
         $update = ['user_id' => $request->user_id, 'playground_id' => $request->playground_id, 'start_date_time' => $request->start_date_time, 

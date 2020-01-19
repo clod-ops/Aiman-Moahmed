@@ -1,4 +1,4 @@
-@extends('bookings.layout')
+@extends('layouts.app')
  
 @section('content')
 <h1 style="margin-top: 12px;" class="text-center">Add Booking</a></h1>
@@ -18,48 +18,52 @@
             </select>
             <span class="text-danger">{{ $errors->first('playground_id') }}</span>
         </div>
-    </div>
+
     {{-- Date&Time Picker --}}
-    <div class="col-md-12">
-        <div class="form-group">               
+
+        <div class="form-group">
             <strong>Start Date & Time</strong>
-            <div class='input-group date' id='example1'>
-                <input type='text' name="start_date_time" class="form-control" placeholder="YYYY/MM/DD HH:MM">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+            <input type="text" name="start_date_time" class="form-control datetimepicker-input" data-target="#datetimepicker1"  placeholder="YYYY/MM/DD HH:MM"/>
+            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
             </div>
             <span class="text-danger">{{ $errors->first('start_date_time') }}</span>
         </div>
-    </div>
-    <div class="col-md-12">
-        <div class="form-group">               
+        <div class="form-group">
             <strong>Finish Date & Time</strong>
-            <div class='input-group date' id='example2'>
-                <input type='text' name="finish_date_time" class="form-control" placeholder="YYYY/MM/DD HH:MM">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+            <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+            <input type="text" name="finish_date_time" class="form-control datetimepicker-input" data-target="#datetimepicker2"  placeholder="YYYY/MM/DD HH:MM"/>
+            <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
             </div>
             <span class="text-danger">{{ $errors->first('finish_date_time') }}</span>
         </div>
     </div>
-    <script>
-        $(function () {
-              $('#example1').datetimepicker({
-                format: 'YYYY/MM/DD HH:mm',
-                locale: 'en'
-              });
-              $('#example2').datetimepicker({
-                format: 'YYYY/MM/DD HH:mm',
-                locale: 'en'
-              });
-        });
-    </script>
+
     <div class="col-md-12">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </div>
  
 </form>
+@endsection
+
+@section('scripts')
+<script>
+    $(function () {
+        console.log('1212check')
+        $('#datetimepicker1').datetimepicker({
+                format: 'YYYY/MM/DD HH:mm',
+                locale: 'en'
+              });
+        $('#datetimepicker2').datetimepicker({
+                format: 'YYYY/MM/DD HH:mm',
+                locale: 'en'
+              });
+        
+    });
+</script>
 @endsection
