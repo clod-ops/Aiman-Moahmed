@@ -9,11 +9,11 @@ use App\Playground;
 
 class FinishDT implements Rule
 {
-    public $id;
+    public $playground_id;
   
-    public function __construct()
+    public function __construct($playground_id)
     {
-
+        $this->playground_id = $playground_id;  
     }
    
     public function passes($attribute, $value)
@@ -24,7 +24,8 @@ class FinishDT implements Rule
         $bookingsCount = Booking::where(function ($query) use ($date) {
             $query->where(function ($query) use ($date) {
                 $query->where('start_date_time', '<=', $date)
-                        ->where('finish_date_time', '>', $date);
+                        ->where('finish_date_time', '>', $date)
+                          ->where('playground_id', $this->playground_id);
                 });
         })->count();
 
@@ -33,6 +34,6 @@ class FinishDT implements Rule
 
     public function message()
     {
-        return 'Time not available/ Allocated';
+        return 'Time not available/ Already taken in this location';
     }
 }

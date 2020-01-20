@@ -86,6 +86,7 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.20.1/moment.min.js"></script>
     <script src="{{ asset('js/vendor.js') }}"></script>
 
+
     @yield('scripts')
 
 </body>

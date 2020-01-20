@@ -28,11 +28,13 @@ class BookingController extends Controller
 
     public function store(Request $request)
     {
+        $playground_id = $request->input('playground_id');
+
         $request->validate([
             'user_id' => 'nullable',
             'playground_id' => 'required',
-            'start_date_time' => ['required','date','after:today', new StartDT],
-            'finish_date_time' => ['required','date','after:start_date_time', new FinishDT()],
+            'start_date_time' => ['required','date','after:today', new StartDT($playground_id)],
+            'finish_date_time' => ['required','date','after:start_date_time', new FinishDT($playground_id)],
         ]);
        
         $request->merge(['user_id' => Auth::user()->id]);
@@ -60,11 +62,13 @@ class BookingController extends Controller
    
     public function update(Request $request, $id)
     {
-            $request->validate([
+        $playground_id = $request->input('playground_id');
+
+        $request->validate([
             'user_id' => 'required',
             'playground_id' => 'required',
-            'start_date_time' => ['required','date','after:today', new StartDT()],
-            'finish_date_time' => ['required','date','after:start_date_time', new FinishDT()],
+            'start_date_time' => ['required','date','after:today', new StartDT($playground_id)],
+            'finish_date_time' => ['required','date','after:start_date_time', new FinishDT($playground_id)],
         ]);
          
         $update = ['user_id' => $request->user_id, 'playground_id' => $request->playground_id, 'start_date_time' => $request->start_date_time, 
