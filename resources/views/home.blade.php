@@ -16,8 +16,8 @@
 
                     You are logged in!
                     <br><br><a href="{{ route('playgrounds.index') }}" class="btn btn-success mb-2">Go to Playgrounds</a> 
-        <a href="{{ route('customers.index') }}" class="btn btn-success mb-2">Go to Customers</a> 
-        <a href="{{ route('bookings.index') }}" class="btn btn-success mb-2">Go to Bookings</a> 
+                    <a href="{{ route('customers.index') }}" class="btn btn-success mb-2">Go to Customers</a> 
+                    <a href="{{ route('bookings.index') }}" class="btn btn-success mb-2">Go to Bookings</a> 
                 </div>
             </div>
         </div>
