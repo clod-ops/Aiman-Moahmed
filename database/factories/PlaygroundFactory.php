@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Playground::class, function (Faker $faker) {
     return [
-        'name' => $faker->city,
+        'name' => $faker->unique()->city,
         'location' => $faker->country,
         'size' => $faker->numberBetween($min = 1, $max = 9999),
         'capacity' => $faker->numberBetween($min = 1, $max = 999), 

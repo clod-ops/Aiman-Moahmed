@@ -10,6 +10,6 @@ $factory->define(Customer::class, function (Faker $faker) {
         'first_name' => $faker->firstNameMale,
         'last_name' => $faker->lastName,
         'date_of_birth' => $faker->date($format = 'Y-m-d', $max = 'now'),
-        'user_id' => $faker->numberBetween($min = 1, $max = 100),
+        'user_id' => $faker->unique()->numberBetween($min = 1, $max = 100),
     ];
 });

@@ -15,8 +15,10 @@
             <th scope="col">Date of Birth</th>
             <th scope="col">User ID</th>
             @if(Auth::check())
-          <th scope="col"><a href="{{ route('customers.create') }}" class="btn btn-success">Create</a></th>
-          @endif
+                @can('Create')
+                <th scope="col"><a href="{{ route('customers.create') }}" class="btn btn-success">Create</a></th>
+                @endcan
+            @endif
           </tr>
         </thead>
         <tbody>
@@ -30,10 +32,14 @@
                     @if(Auth::check())
                     <td>
                         <form action="{{ route('customers.destroy', $customer->id)}}" method="post">
+                            @can('Edit')
                             <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-primary">Edit</a>
+                            @endcan
                             {{ csrf_field() }}
                             @method('DELETE')
+                            @can('Delete')
                        <button type="submit" class="btn btn-danger">Delete</button>
+                       @endcan
                         </form>
                     </td>
                     @endif

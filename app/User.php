@@ -43,4 +43,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Booking');
     }
+    public function playground()
+    {
+        return $this->hasMany('App\Playground');
+    }
+    public function customer()
+    {
+        return $this->hasMany('App\Customer');
+    }
 }

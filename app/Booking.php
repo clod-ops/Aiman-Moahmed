@@ -15,6 +15,11 @@ class Booking extends Model
         'finish_date_time',
        ];
 
+    // public function scopeByUser($query, User $user){
+    //     if(!$user->hasRole('Admin|User')){
+    //         return $query->
+    //     }
+    // }
     // relationships
     public function user()
     {

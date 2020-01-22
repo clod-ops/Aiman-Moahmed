@@ -27,27 +27,31 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $role = Role::create(['name' => 'user']);
-        // $permission = Permission::create(['name' => 'Low control']);
+        // TO CREATE
+        // $role = Role::create(['name' => 'Customer']);
+        // $permission = Permission::create(['name' => 'Delete']);
 
-        $role = Role::findById(3);
-        $permission = Permission::findById(2);
+        // TO FIND
+        // $role = Role::findById(3);
+        // $permission = Permission::findById(1);
 
-        $role->givePermissionTo($permission);
+        // TO ASSIGN
+        // $role->givePermissionTo($permission);
         // $permission->assignRole($role);
 
+        // TO REMOVE
         // $role->revokePermissionTo($permission);
         // $permission->removeRole($role);
 
-        // auth()->user()->givePermissionTo('mid control');
-        // auth()->user()->assignRole('user');
+        // TO GIVE PERMISSION/ROLES TO USER
+        // auth()->user()->givePermissionTo('Create');
+        // auth()->user()->assignRole('Customer');
 
-
+        // TO CHECK
         // return auth()->user()->getDirectPermissions();
         // return auth()->user()->getPermissionsViaRoles();
         // return auth()->user()->getAllPermissions();
         // return auth()->user()->getRoleNames();
-
         // return User::role('user')->get();
         // return User::permission('Full control')->get();
 
