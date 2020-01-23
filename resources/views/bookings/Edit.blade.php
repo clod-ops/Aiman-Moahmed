@@ -6,28 +6,26 @@
  
 <form action="{{ route('bookings.update', $booking_info->id) }}" method="POST" name="update_booking">
 {{ csrf_field() }}
-@method('PATCH')
- 
+@method('PUT')
+
 <div class="row">
     <div class="col-md-12">
         <div class="form-group">
             <strong>User Name</strong>
-            <select name="user_id" id="user_id" class="form-control">
-                @foreach(\App\User::get() as $item)
-                    <option value="{{$item->id}}">{{$item->name}}</option>
-                @endforeach
-            </select>
+            <input type="hidden" name="user_id" id="user_id"  value="{{ $booking_info->user->id }}"/> 
+            <output name="user_id" id="user_id" class="form-control" >
+                {{$booking_info->user->name}}
+            </output>
             <span class="text-danger">{{ $errors->first('user_id') }}</span>
         </div>
     </div>
     <div class="col-md-12">
         <div class="form-group">
             <strong>Playground Name</strong>
-            <select name="playground_id" id="playground_id" class="form-control">
-                @foreach(\App\Playground::get() as $item)
-                    <option value="{{$item->id}}">{{$item->name}}</option>
-                @endforeach
-            </select>
+            <input type="hidden" name="playground_id" id="playground_id" value="{{ $booking_info->playground_id }}"/>
+            <output name="playground_id" id="playground_id" class="form-control">
+                {{$booking_info->playground->name}}
+            </output>
             <span class="text-danger">{{ $errors->first('playground_id') }}</span>
         </div>
     </div>

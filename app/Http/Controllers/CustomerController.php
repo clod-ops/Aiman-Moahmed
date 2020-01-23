@@ -42,7 +42,7 @@ class CustomerController extends Controller
         $request->validate([
             'first_name' => 'required|alpha',
             'last_name' => 'required|alpha',
-            'date_of_birth' => 'required|date_format:Y-m-d|before:today',
+            'date_of_birth' => 'required|date|before:today',
             'user_id' => 'required|between:1,100|unique:customers',
         ]);
 
@@ -89,8 +89,8 @@ class CustomerController extends Controller
         $request->validate([
             'first_name' => 'required|alpha',
             'last_name' => 'required|alpha',
-            'date_of_birth' => 'required|date_format:Y-m-d|before:today',
-            'user_id' => 'required|between:1,100|unique:customers',
+            'date_of_birth' => 'required|date|before:today',
+            'user_id' => 'required|between:1,100',
         ]);
          
         $update = ['first_name' => $request->first_name, 'last_name' => $request->last_name, 'date_of_birth' => $request->date_of_birth, 'user_id' => $request->user_id];

@@ -5,7 +5,7 @@
 <h2 style="margin-top: 12px;" class="text-center">Add Playground</a></h2>
 <br>
  
-<form action="{{ route('playgrounds.store') }}" method="POST" name="add_playground">
+<form action="{{ route('playgrounds.store') }}" method="POST" name="add_playground" enctype="multipart/form-data">
 {{ csrf_field() }}
  
 <div class="row">
@@ -35,6 +35,12 @@
             <strong>Capacity</strong>
             <input type="text" class="form-control" name="capacity" placeholder="1-999 people">
             <span class="text-danger">{{ $errors->first('capacity') }}</span>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <strong>Playground Image</strong><br>
+                {{Form::file('cover_image')}}
         </div>
     </div>
     <div class="col-md-12">

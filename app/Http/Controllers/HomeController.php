@@ -18,6 +18,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
     /**
@@ -45,7 +46,7 @@ class HomeController extends Controller
 
         // TO GIVE PERMISSION/ROLES TO USER
         // auth()->user()->givePermissionTo('Create');
-        // auth()->user()->assignRole('Customer');
+        // auth()->user()->assignRole('Admin');
 
         // TO CHECK
         // return auth()->user()->getDirectPermissions();

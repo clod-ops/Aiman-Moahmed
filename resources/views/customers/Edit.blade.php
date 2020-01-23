@@ -6,7 +6,7 @@
  
 <form action="{{ route('customers.update', $customer_info->id) }}" method="POST" name="update_customer">
 {{ csrf_field() }}
-@method('PATCH')
+@method('PUT')
  
 <div class="row">
     <div class="col-md-12">
@@ -44,4 +44,16 @@
 </div>
  
 </form>
+@endsection
+
+@section('scripts')
+<script>
+    $(function () {
+        console.log('1212check')
+        $('#datetimepicker1').datetimepicker({
+                format: 'YYYY/MM/DD HH:mm',
+                locale: 'en'
+              });
+    });
+</script>
 @endsection

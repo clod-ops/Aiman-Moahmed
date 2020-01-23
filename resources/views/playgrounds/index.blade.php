@@ -9,6 +9,7 @@
     <table class="table">
         <thead class="thead-dark">
           <tr>
+            <th scope="col"></th>
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Location</th>
@@ -24,6 +25,9 @@
         <tbody>
             @foreach ($playgrounds as $playground)
                 <tr>
+                    <td>
+                    <img src="/storage/cover_images/{{$playground->cover_image}}">
+                    </td>
                     <td>{{ $playground->id }}</td>
                     <td>{{ $playground->name }}</td>
                     <td>{{ $playground->location }}</td>

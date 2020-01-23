@@ -9,6 +9,7 @@
     <table class="table">
       <thead class="thead-dark">
         <tr>
+          <th scope="col"></th>
           <th scope="col">#</th>
           <th scope="col">User Name</th>
           <th scope="col">Playground Name</th>
@@ -24,14 +25,18 @@
       </thead>
         <tbody>
           @if(Auth::User('id')->hasRole('Customer'))
-            {{-- @foreach ($bookings as $booking) --}}
+            @foreach (Auth::User()->bookings as $booking)
               <tr>
-                <td> {{ Auth::user()->id }}</td>
-                <td> {{ Auth::user()->name }}</td>
-                <td> {{ Auth::user()->playgrounds }}</td>
-                <td> {{ Auth::user()->start_date_time }}</td>
-                <td> {{ Auth::user()->finish_date_time }}</td>
-                    {{-- @if(Auth::check())
+                <td>
+                <img src="/storage/cover_images/{{$booking->playground->cover_image}}">
+                </td>
+                <td> {{ $booking->id }}</td>
+                <td> {{ $booking->user->name }}</td>
+                <td> {{ $booking->playground->name }}</td>
+                <td> {{ $booking->start_date_time }}</td>
+                <td> {{ $booking->finish_date_time }}</td>
+                
+                    @if(Auth::check())
                       <form action="{{ route('bookings.destroy', $booking->id)}}" method="post">
                           @can('Edit')
                           <a href="{{ route('bookings.edit', $booking->id)}}" class="btn btn-primary">Edit</a>
@@ -42,13 +47,16 @@
                             <button type="submit" class="btn btn-danger">Delete</button>
                           @endcan
                       </form>
-                    @endif --}}
+                    @endif
                   </td>
               </tr>
-            {{-- @endforeach --}}
+            @endforeach
           @elseif (Auth::User('id')->hasRole('Admin|User'))
             @foreach ($bookings as $booking)
                 <tr>
+                    <td>
+                    <img src="/storage/cover_images/{{$booking->playground->cover_image}}">
+                    </td>
                     <td>{{ $booking->id }}</td>
                     <td>{{ $booking->user->name }}</td>
                     <td>{{ $booking->playground->name }}</td>

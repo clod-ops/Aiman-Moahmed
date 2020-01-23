@@ -67,7 +67,7 @@ class BookingController extends Controller
         $request->validate([
             'user_id' => 'required',
             'playground_id' => 'required',
-            'start_date_time' => ['required','date','after:today', new StartDT($playground_id)],
+            'start_date_time' => ['required','date','after:today'],
             'finish_date_time' => ['required','date','after:start_date_time', new FinishDT($playground_id)],
         ]);
          

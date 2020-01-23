@@ -22,10 +22,23 @@
             <span class="text-danger">{{ $errors->first('last_name') }}</span>
         </div>
     </div>
-    <div class="col-md-12">
+    {{-- <div class="col-md-12">
         <div class="form-group">
             <strong>Date of Birth</strong>
             <input type="text" class="form-control" name="date_of_birth" placeholder="2000-06-06">
+            <span class="text-danger">{{ $errors->first('date_of_birth') }}</span>
+        </div>
+    </div> --}}
+
+    <div class="col-md-12">
+        <div class="form-group">
+            <strong>Date of Birth</strong>
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                <input type="text" name="date_of_birth" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+                </div>
             <span class="text-danger">{{ $errors->first('date_of_birth') }}</span>
         </div>
     </div>
@@ -42,4 +55,16 @@
 </div>
  
 </form>
+@endsection
+
+@section('scripts')
+<script>
+    $(function () {
+        console.log('1212check')
+        $('#datetimepicker1').datetimepicker({
+                format: 'YYYY/MM/DD',
+                locale: 'en'
+              });  
+    });
+</script>
 @endsection

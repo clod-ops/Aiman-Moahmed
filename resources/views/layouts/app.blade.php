@@ -21,6 +21,17 @@
         .heading {
                 font-size: 42px;
             }
+        
+        img {
+            border: 0.5px solid grey;
+            border-radius: 4px;
+            padding: 4px;
+            width: 300px;
+            height: 200px;
+            }
+        img:hover {
+            opacity: 0.7;
+            }
     </style>
 
 
@@ -85,7 +96,6 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.20.1/moment.min.js"></script>
     <script src="{{ asset('js/vendor.js') }}"></script>
-
 
     @yield('scripts')
 

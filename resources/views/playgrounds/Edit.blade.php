@@ -4,9 +4,9 @@
 <h2 style="margin-top: 12px;" class="text-center">Edit Playground</a></h2>
 <br>
  
-<form action="{{ route('playgrounds.update', $playground_info->id) }}" method="POST" name="update_playground">
+<form action="{{ route('playgrounds.update', $playground_info->id) }}" method="POST" name="update_playground" enctype="multipart/form-data">
 {{ csrf_field() }}
-@method('PATCH')
+@method('PUT')
  
 <div class="row">
     <div class="col-md-12">
@@ -37,7 +37,12 @@
             <span class="text-danger">{{ $errors->first('capacity') }}</span>
         </div>
     </div>
-    
+    <div class="col-md-12">
+        <div class="form-group">
+            <strong>Playground Image</strong><br>
+                {{Form::file('cover_image')}}
+        </div>
+    </div>
     <div class="col-md-12">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>

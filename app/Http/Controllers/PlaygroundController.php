@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Playground;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Redirect;
 use PDF;
 
@@ -42,12 +43,36 @@ class PlaygroundController extends Controller
         $request->validate([
             'name' => 'required|alpha',
             'location' => 'required|alpha',
-            'size' => 'required|between:1,9999',
-            'capacity' => 'required|between:1,999',
+            'size' => 'required|integer|between:1,9999',
+            'capacity' => 'required|integer|between:1,999',
+            'cover_image' => 'image|nullable|max:1999'
         ]);
+        
+        if($request->hasFile('cover_image')){
+            // Get filename with extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            //filename to store(Checks unique image using timestamp)
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
 
-        Playground::create($request->all());
+        // Playground::create($request->all());
 
+        $playground = new Playground;
+        $playground->name = $request->input('name');
+        $playground->location = $request->input('location');
+        $playground->size = $request->input('size');
+        $playground->capacity = $request->input('capacity');
+        $playground->cover_image = $fileNameToStore;
+        $playground->save();
+        
         return Redirect::to('playgrounds')
         ->with('success', 'Great! Playground created succesfully.');
     }
@@ -89,12 +114,38 @@ class PlaygroundController extends Controller
         $request->validate([
             'name' => 'required|alpha',
             'location' => 'required|alpha',
-            'size' => 'required|between:1,9999',
-            'capacity' => 'required|between:1,999',
+            'size' => 'required|integer|between:1,9999',
+            'capacity' => 'required|integer|between:1,999',
+            'cover_image' => 'image|nullable|max:1999'
         ]);
          
-        $update = ['name' => $request->name, 'location' => $request->location, 'size' => $request->size, 'capacity' => $request->capacity];
-        Playground::where('id',$id)->update($update);
+        // $update = ['name' => $request->name, 'location' => $request->location, 'size' => $request->size, 'capacity' => $request->capacity, 'cover_image' => $request->cover_image];
+        // Playground::where('id',$id)->update($update);
+
+        if($request->hasFile('cover_image')){
+            // Get filename with extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            //filename to store(Checks unique image using timestamp)
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+
+        $playground = Playground::find($id);
+        $playground->name = $request->input('name');
+        $playground->location = $request->input('location');
+        $playground->size = $request->input('size');
+        $playground->capacity = $request->input('capacity');
+        if($request->hasFile('cover_image')){
+            $playground->cover_image = $fileNameToStore;
+        }
+        $playground->save();
    
         return Redirect::to('playgrounds')
        ->with('success','Great! Playground updated successfully');
