@@ -29,12 +29,12 @@ class HomeController extends Controller
     public function index()
     {
         // TO CREATE
-        // $role = Role::create(['name' => 'Customer']);
+        // $role = Role::create(['name' => 'User']);
         // $permission = Permission::create(['name' => 'Delete']);
 
         // TO FIND
-        // $role = Role::findById(3);
-        // $permission = Permission::findById(1);
+        $role = Role::findById(3);
+        $permission = Permission::findById(2);
 
         // TO ASSIGN
         // $role->givePermissionTo($permission);
@@ -46,7 +46,7 @@ class HomeController extends Controller
 
         // TO GIVE PERMISSION/ROLES TO USER
         // auth()->user()->givePermissionTo('Create');
-        // auth()->user()->assignRole('Admin');
+        // auth()->user()->assignRole('User');
 
         // TO CHECK
         // return auth()->user()->getDirectPermissions();

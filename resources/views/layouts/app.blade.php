@@ -96,6 +96,11 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.20.1/moment.min.js"></script>
     <script src="{{ asset('js/vendor.js') }}"></script>
+    {{-- <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/js/vendor/jquery.ui.widget.js"></script>
+    <script src="/js/jquery.iframe-transport.js"></script>
+    <script src="/js/jquery.fileupload.js"></script> --}}
 
     @yield('scripts')
 

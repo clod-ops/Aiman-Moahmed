@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCoverImagesToPlaygrounds extends Migration
+class AddCoverImageToPlaygrounds extends Migration
 {
     /**
      * Run the migrations.
@@ -26,7 +26,7 @@ class AddCoverImagesToPlaygrounds extends Migration
     public function down()
     {
         Schema::table('playgrounds', function (Blueprint $table) {
-            $table->dropColumn('cover_image');
+            
         });
     }
 }

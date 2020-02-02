@@ -41,7 +41,7 @@ class PlaygroundController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|alpha',
+            'name' => 'required|regex: /^[a-zA-Z\s]*$/',
             'location' => 'required|alpha',
             'size' => 'required|integer|between:1,9999',
             'capacity' => 'required|integer|between:1,999',

@@ -31,6 +31,10 @@ Route::put('/playgrounds/{playgrounds}', 'PlaygroundController@update')->name('p
 Route::get('/playgrounds/{playgrounds}/edit', 'PlaygroundController@edit')->name('playgrounds.edit')->middleware('permission:Edit');
 Route::delete('/playgrounds/{playgrounds}', 'PlaygroundController@destroy')->name('playgrounds.destroy')->middleware('permission:Delete');
 
+// Route::get('/', 'UploadController@uploadForm')->name('upload');
+// Route::post('/upload', 'UploadController@uploadSubmit');
+// Route::post('/playground', 'UploadController@postPlayground');
+
 Route::get('/customers', 'CustomerController@index')->name('customers')->middleware('role:Admin|User|Customer');
 Route::get('/customers', 'CustomerController@index')->name('customers.index')->middleware('role:Admin|User|Customer');
 Route::get('/customers/create', 'CustomerController@create')->name('customers.create')->middleware('permission:Create');

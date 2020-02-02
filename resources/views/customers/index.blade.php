@@ -27,7 +27,7 @@
                     <td>{{ $customer->id }}</td>
                     <td>{{ $customer->first_name }}</td>
                     <td>{{ $customer->last_name }}</td>
-                    <td>{{ $customer->date_of_birth }}</td>
+                    <td>{{ Carbon\Carbon::parse($customer->date_of_birth)->isoFormat('Do MMMM YYYY') }}</td>
                     <td>{{ $customer->user_id }}</td>
                     @if(Auth::check())
                     <td>

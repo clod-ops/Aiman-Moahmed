@@ -41,8 +41,11 @@
         <div class="form-group">
             <strong>Playground Image</strong><br>
                 {{Form::file('cover_image')}}
+
+                {{-- <a href="{{ route('upload') }}" class="btn btn-success mb-2">Upload Picture(s)</a>  --}}
         </div>
     </div>
+
     <div class="col-md-12">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
@@ -50,4 +53,9 @@
  
 </form>
 @endsection
+
+{{-- @section('scripts')
+
+
+@endsection --}}
 
